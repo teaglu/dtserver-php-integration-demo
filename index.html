@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Device Web Connector PHP Integration Demo</title>
+<script src="lib/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="lib/bootstrap-4.3.1/css/bootstrap.min.css"/>
+<script>
+$(document).ready(function () {
+	$('#sendZplBtn').click(function (e) {
+		e.preventDefault();
+		
+		$.ajax({
+			url: 'sendZpl.php',
+			method: 'POST',
+			success: function (data) {
+				alert("ZPL Sent!");
+			},
+			error: function (jqxhr) {
+				alert(jqxhr.responseText);
+			}
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<div class="container-fluid" style="margin-top: 20px;"/>
+		<div class="row">
+			<div class="col-md-6 mb-3" style="text-align: center;">
+				<iframe id="printFrame" src="iframe.php" style="border: 0; width: 500px; height: 200px;"></iframe>
+			</div>
+			<div class="col-md-6 mb-3" style="text-align: center;">
+				<button class="btn btn-success" id="sendZplBtn">Send ZPL</button>
+			</div>
+		</div>
+	</div>
+</body>
