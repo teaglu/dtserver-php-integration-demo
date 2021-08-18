@@ -1,0 +1,30 @@
+{
+	"framed": {
+	},
+	"authenticator": {
+		"type": "jwt",
+		"requireJunction": true,
+		"secret": "abcdeLMNOP",
+		"forwardSkew": 60,
+		"backwardSkew": 1200
+	},
+	"junctions": {
+	},
+	"listeners": {
+		"api": {
+			"port": 9200,
+			"api": true
+		}
+	},
+	"writeStrategy": {
+		"type": "pool",
+		"poolType": "fixed",
+		"threads": 16
+	},
+	"quotas": {
+		"controlSession": {
+			"softLimit": 512,
+			"hardLimit": 1024
+		}
+	}
+}
